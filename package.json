@@ -1,15 +1,20 @@
+
 {
-  "name": "nodejs",
+  "name": "automotive-saas-platform",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Automotive SaaS Platform with React frontend and Node.js backend",
+  "main": "server/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && node index.js",
+    "client": "cd client && npm start",
+    "build": "cd client && npm run build",
+    "install-all": "npm install && cd client && npm install && cd ../server && npm install"
   },
-  "keywords": [],
+  "keywords": ["automotive", "saas", "react", "nodejs"],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^22.13.11"
+    "concurrently": "^7.6.0"
   }
 }

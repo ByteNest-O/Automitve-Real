@@ -12,3 +12,19 @@ channel = "stable-24_11"
 run = ["node", "index.js"]
 deploymentTarget = "autoscale"
 ignorePorts = false
+
+[workflows]
+runButton = "Start Full-Stack Dev"
+
+[[workflows.workflow]]
+name = "Start Full-Stack Dev"
+author = 44352172
+mode = "parallel"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd server && npm install && node index.js"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd client && npm install && npm start"
